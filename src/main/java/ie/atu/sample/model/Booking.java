@@ -1,6 +1,10 @@
 package ie.atu.sample.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "bookings")
@@ -9,8 +13,14 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
+    @Min(2)
+    @Max(60)
     String orgName;
+
+    @Positive
     Long attendanceCount;
+
     Long RoomId;
     Boolean status;
 
