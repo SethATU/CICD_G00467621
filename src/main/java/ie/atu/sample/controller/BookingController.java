@@ -1,12 +1,10 @@
 package ie.atu.sample.controller;
 
+import ie.atu.sample.dto.CreateBookingRequest;
 import ie.atu.sample.model.Booking;
 import ie.atu.sample.service.BookingService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/booking")
@@ -18,4 +16,5 @@ public class BookingController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    public Booking createBooking(@RequestBody CreateBookingRequest request) { return bookingService.createBooking(request); }
 }
